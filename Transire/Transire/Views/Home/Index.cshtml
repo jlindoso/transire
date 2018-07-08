@@ -7,7 +7,7 @@
             @{
                 foreach (var categoria in ViewBag.CategoriasMenu)
                 {
-                    <a href="#" class="list-group-item">@categoria.Nome</a>
+                    <a href="@Url.Action("produtos", "Home", new { id = categoria.Id })" class="list-group-item">@categoria.Nome</a>
                 }
             }
 

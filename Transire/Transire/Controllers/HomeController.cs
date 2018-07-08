@@ -25,20 +25,20 @@ namespace Transire.Controllers
 
             return View();
         }
-        public ActionResult About()
+        public ActionResult Produtos(int? id)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ViewBag.categoria = db.Categorias.Find(id);
+            ViewBag.Produtos = db.Produtos.Where(x => x.CategoriaId == id).ToList();
             return View();
         }
         
+
+
+
 
     }
 }

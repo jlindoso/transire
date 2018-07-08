@@ -21,7 +21,8 @@ namespace Transire
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Database.SetInitializer<Context>(new DropCreateDatabaseIfModelChanges<Context>());
-            
+           
+
         }
     }
 }

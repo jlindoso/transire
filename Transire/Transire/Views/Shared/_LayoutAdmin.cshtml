@@ -14,15 +14,14 @@
     <link rel="stylesheet" href="~/Content/css/core-style.css">
     <link rel="stylesheet" href="~/Content/css/style.css">
     <link rel="stylesheet" href="~/Content/Dashboard.css">
-
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.1/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.4.0/r-2.2.2/rg-1.0.3/rr-1.2.4/sc-1.5.0/sl-1.2.6/datatables.min.css" />
 </head>
 <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Administrador</a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-               <a href="@Url.Action("Index", "Home")" class="nav-link">Site</a>
+                <a href="@Url.Action("Index", "Home")" class="nav-link">Site</a>
             </li>
         </ul>
     </nav>
@@ -43,7 +42,7 @@
                                 <span data-feather="home"></span>
                                 Produtos <span class="sr-only">(current)</span>
                             </a>
-                        </li>              
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -56,16 +55,40 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("Scripts", required: false)
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/currency")
+    }
+
     <!-- jQuery (Necessary for All JavaScript Plugins) -->
-    <script src="~/Scripts/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    
     <!-- Bootstrap js -->
     <script src="~/Scripts/js/bootstrap.min.js"></script>
     <!-- Plugins js -->
     <script src="~/Scripts/js/plugins.js"></script>
-    <!-- Classy Nav js -->
-
-    <!-- Active js -->
+    <script src="~/Scripts/DataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dTable').DataTable({
+        "language": {
+            "lengthMenu": "Mostrando _MENU_ registros por pagina",
+            "zeroRecords": "Nada Encontrado",
+            "info": "Mostrando Pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "Nenhum Resgistro Encontrado",
+            "infoFiltered": "(Filtrado de _MAX_ total Registros)",
+            "sSearch": "Pesquisar",
+            "oPaginate": {
+                "sNext": "Próximo",
+                "sPrevious": "Anterior",
+                "sFirst": "Primeiro",
+                "sLast": "Último"
+            },
+            "oAria": {
+                "sSortAscending": ": Ordenar colunas de forma ascendente",
+                "sSortDescending": ": Ordenar colunas de forma descendente"
+            }
+        }
+    });
+        });
+    </script>
 </body>
 </html>

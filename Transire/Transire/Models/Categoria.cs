@@ -11,6 +11,7 @@ namespace Transire.Models
         [Key] 
         public int Id { get; set; }
         [Display(Name ="Nome da Categoria")]
+        [Required(ErrorMessage = "Campo Obrigatório")]
         public String Nome { get; set; }
       
     }

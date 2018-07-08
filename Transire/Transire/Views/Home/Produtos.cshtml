@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Produtos";
+}
+
+<h2>@ViewBag.categoria.Nome</h2>
+<div class="row">
+    <div class="popular-products-slides owl-carousel">
+        @{
+            foreach (var item in @ViewBag.Produtos)
+            {
+
+                <div class="card h-auto ">
+                    <center>
+                        <a href="#"><img class="card-img-top justify-content-sm-center" src="@Url.Action("Mostrar", "ImageRender", new { id = item.Id} )" style="height:150px; width:auto"></a>
+                    </center>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#">@item.Nome</a>
+                        </h4>
+                        <h5>R$@item.Preco</h5>
+                        <p class="card-text">@item.Descricao</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">
+                            <button class="btn btn-outline-dark">Add ao Carrinho</button>
+                        </small>
+                    </div>
+                </div>
+
+            }
+
+        }
+        <br />
+    </div>
+</div>
