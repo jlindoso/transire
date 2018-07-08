@@ -1,2 +1,8 @@
-# transire
-Programa solicitado para avaliação
+# Transire Loja Virtual
+
+
+## Aparência
+
+## Tecnologias Utilizadas
+
+## Instalação 
