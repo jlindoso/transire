@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+@model Transire.Models.Categoria
+
+<h5><span></span>  Categoria</h5>
+<hr />
+
+
+<div class="form-group col-md-offset-2 ">
+    <label>@Html.DisplayNameFor(model => model.Nome)</label>
+    <input type="text" class="form-control" readonly value="@Html.DisplayFor(model => model.Nome)" />
+</div>
+
+<div class="col-md-12 text-right">
+    @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-outline-secondary" }) | @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-outline-primary" })
+
+</div>
+<br />

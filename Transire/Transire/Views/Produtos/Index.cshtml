@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+@model IEnumerable<Transire.Models.Produto>
+
+@{
+    string message = TempData["msg"] as string;
+    if (message != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>@message</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+}
+<div class="row">
+    <div class="col-md-6 text-left"><h5><span></span>Produtos</h5></div>
+    <div class="col-md-6 text-right">@Html.ActionLink("Novo Produto", "Create", null, new { @class = "btn btn-sm btn-outline-secondary" })</div>
+</div>
+
+<br />
+
+<table class="table table-hover">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Preco)
+        </th>
+        <th>
+            Imagem
+        </th>
+        <th></th>
+        <th class="text-center">Ações</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                <img src="@Url.Action("Mostrar", "ImageRender", new { id = item.Id} )" width="50" height="50" />
+            </td>
+            <td></td>
+            <td class="text-center">
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-outline-primary" })
+
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-outline-primary" })
+
+                @Html.ActionLink("Apagar", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-outline-primary" })
+            </td>
+        </tr>
+    }
+
+</table>

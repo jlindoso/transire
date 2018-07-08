@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Loja Virtual</title>
+
+
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="~/Content/css/core-style.css">
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/Dashboard.css">
+
+
+</head>
+<body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Administrador</a>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+               <a href="@Url.Action("Index", "Home")" class="nav-link">Site</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="@Url.Action("Index", "Categorias")">
+                                <span data-feather="home"></span>
+                                Categorias <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="@Url.Action("Index", "Produtos")">
+                                <span data-feather="home"></span>
+                                Produtos <span class="sr-only">(current)</span>
+                            </a>
+                        </li>              
+                    </ul>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 ">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("Scripts", required: false)
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="~/Scripts/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    
+    <!-- Bootstrap js -->
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="~/Scripts/js/plugins.js"></script>
+    <!-- Classy Nav js -->
+
+    <!-- Active js -->
+</body>
+</html>

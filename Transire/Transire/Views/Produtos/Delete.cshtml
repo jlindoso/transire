@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+@model Transire.Models.Produto
+
+<div class="alert alert-warning" role="alert">
+
+    Você tem certeza que Deseja Apagar esta Produto <strong> @Html.DisplayFor(model => model.Nome)</strong>  ?
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        
+
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-sm btn-outline-secondary" })  <input type="submit" value="Deletar" class="btn btn-sm btn-outline-primary" />
+        
+    }
+</div>

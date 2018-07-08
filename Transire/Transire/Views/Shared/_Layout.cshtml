@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title  -->
+    <title>Loja Virtual</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="~/img/core-img/favicon.ico">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="~/Content/css/core-style.css">
+    <link rel="stylesheet" href="~/Content/css/style.css">
+
+</head>
+<body style="background-image: url(../../../img/bg-img/bg-1.jpg);background-size: cover ">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img width="50" height="50" src="~/img/images.png" /> VirtualSmart</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("Index", "Categorias")">
+                            Administrador
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container" >
+        @RenderBody()
+        <!-- /.row -->
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="brands-area d-flex align-items-center justify-content-between">
+                <!-- Brand Logo -->
+                <div class="single-brands-logo">
+                    <img src="~/img/core-img/brand1.png" alt="">
+                </div>
+                <!-- Brand Logo -->
+                <div class="single-brands-logo">
+                    <img src="~/img/core-img/brand2.png" alt="">
+                </div>
+                <!-- Brand Logo -->
+                <div class="single-brands-logo">
+                    <img src="~/img/core-img/brand3.png" alt="">
+                </div>
+                <!-- Brand Logo -->
+                <div class="single-brands-logo">
+                    <img src="~/img/core-img/brand4.png" alt="">
+                </div>
+                <!-- Brand Logo -->
+                <div class="single-brands-logo">
+                    <img src="~/img/core-img/brand5.png" alt="">
+                </div>
+                <!-- Brand Logo -->
+                <div class="single-brands-logo">
+                    <img src="~/img/core-img/brand6.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("Scripts", required: false)
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="~/Scripts/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="~/Scripts/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="~/Scripts/js/plugins.js"></script>
+    <!-- Classy Nav js -->
+    <script src="~/Scripts/js/classy-nav.min.js"></script>
+    <!-- Active js -->
+    <script src="~/Scripts/js/active.js"></script>
+    <script>
+        $(function () { $("#flash-message").flashMessage(); });
+        $.fn.flashMessage = function (options) {
+            var target = this;
+            options = $.extend({}, options, { timeout: 3000 });
+            if (!options.message) {
+                options.message = getFlashMessageFromCookie();
+                deleteFlashMessageCookie();
+            }
+            if (options.message) {
+                if (typeof options.message === "string") {
+                    target.html("<span>" + options.message + "</span>");
+                } else {
+                    target.empty().append(options.message);
+                }
+            }
+
+            if (target.children().length === 0) return;
+
+            target.fadeIn().one("click", function () {
+                $(this).fadeOut();
+            });
+
+            if (options.timeout > 0) {
+                setTimeout(function () { target.fadeOut(); }, options.timeout);
+            }
+
+            return this;
+
+            function getFlashMessageFromCookie() {
+                return $.cookie("FlashMessage");
+            }
+
+            function deleteFlashMessageCookie() {
+                $.cookie("FlashMessage", null, { path: '/' });
+            }
+        };
+
+        $(function () { $("#flash-message").flashMessage(); });
+    </script>
+</body>
+
+</html>
